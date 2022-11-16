@@ -3,6 +3,7 @@
 
  */
 
+
 package Assignment5;
 
 import static org.testng.Assert.assertEquals;
@@ -153,7 +154,7 @@ public class LoginCrmAddCandidatesCompaniesContactsLogoutUsingTestNG {
 	  driver.findElement(By.id("sTest-companysearchControl")).sendKeys(companyName);
 	  
 	  TimeUnit.SECONDS.sleep(2);
-	  WebElement ele=driver.findElement(By.id("sTest-companysearchControl"));
+//	  WebElement ele=driver.findElement(By.id("sTest-companysearchControl"));
 	  Actions KeyDown = new Actions(driver);
 	  KeyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
 	  TimeUnit.SECONDS.sleep(1);
@@ -161,20 +162,22 @@ public class LoginCrmAddCandidatesCompaniesContactsLogoutUsingTestNG {
 	 
  }
  
- @Test
+ @AfterTest
  public void Logout() throws InterruptedException {
 	 
 	  System.out.println("Logout Section ");
+	  System.out.println("");
 	  TimeUnit.SECONDS.sleep(5);
 	  driver.findElement(By.id("sTest-dpLinkInAppBtn")).click();
 	  driver.findElement(By.id("sTest-signOutInAppBtn")).click();
+	  driver.quit();
+
  }
 
   
- @AfterTest 
- public void exitBrowser() {
-	 
-	 driver.quit();
-	 
- }
+// @AfterTest 
+// public void exitBrowser() {
+//	 
+//	 
+// }
 }
